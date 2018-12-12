@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js"></script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script type="text/babel">
+    console.log("loading...");
+
+function HeaderComponent(props){
+    console.log("props:",props);
+    return (
+        <div>
+    <BodyComponent val1={props.name} val2={props.msg}/>
+    <FooterComponent msgg={props.children}/>
+    </div>
+    );
+}
+function BodyComponent(props){
+    return (
+       <h1>{props.val1}   {props.val2}</h1>
+
+    );
+    
+}
+
+function FooterComponent(props){
+    console.log("msgg:",props.msgg);
+
+    return (<h1>{props.msgg}</h1>);
+}
+
+function Welcomemsg(props){
+    console.log("name:"+props.name,"msg:"+props.msg);
+return <div style={{"color":"red","textAlign":"center"}}>
+    <marquee><h1>Welcome to react application!!!!!</h1></marquee>
+    </div>;
+}
+
+    ReactDOM.render(<div><HeaderComponent name="Babelrc" msg="Program">Children Component is loading</HeaderComponent></div>,document.getElementById("app"));
+
+</script>
+
+</html>
